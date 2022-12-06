@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react';
+import { StartContainer } from '../../containers/StartContainer';
+import styles from './index.module.scss';
 
-function NotFound() {
-  return <div>NotFound</div>;
-}
-
-export default NotFound;
+export const NotFound = () => (
+  <StartContainer>
+    <div className={styles.label}>Page Not Found</div>
+  </StartContainer>
+);
