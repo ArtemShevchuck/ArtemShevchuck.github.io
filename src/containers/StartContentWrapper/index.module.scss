@@ -1,0 +1,10 @@
+@import './../../styles/vars';
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: $md) {
+    margin: 16px;
+  }
+}

@@ -1,3 +1,4 @@
+// COLORS
 $color-orange-120: #e87928;
 $color-orange-100: #ff8b37;
 $color-orange-80: #ffac70;
@@ -29,3 +30,13 @@ $theme-colors: (
 @function theme-color($key) {
   @return map-get($theme-colors, $key);
 }
+
+// RADIUS
+$border-radius: 12px;
+
+// MEDIA QUERIES
+$xs: 320px;
+$sm: 481px;
+$md: 769px;
+$lg: 1025px;
+$xl: 1201px;

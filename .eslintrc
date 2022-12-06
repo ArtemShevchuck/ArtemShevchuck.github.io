@@ -1,39 +1,42 @@
 {
-  "extends": ["react-app", "airbnb", "plugin:jsx-a11y/recommended", "prettier"],
-  "plugins": ["jsx-a11y", "prettier"],
-  "rules": {
-    "semi": 0,
-    "react/jsx-filename-extension": [
-      1,
-      { "extensions": [".js", ".jsx", ".ts", "tsx"] }
-    ],
-    "prettier/prettier": [
-      "error",
-      {
-        "semi": true,
-        "doubleQuotes": true,
-        "endOfLine": "auto",
-        "no-console": "on"
-      }
-    ],
-
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "mjs": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ]
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
   },
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:jest/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["react", "@typescript-eslint", "jest"],
   "settings": {
-    "import/resolver": {
-      "node": {
-        "extensions": [".js", ".jsx", ".ts", ".tsx"]
-      }
+    "react": {
+      "version": "detect"
     }
+  },
+  "rules": {
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": ["function-declaration", "arrow-function"],
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "import/prefer-default-export": "off"
   }
 }

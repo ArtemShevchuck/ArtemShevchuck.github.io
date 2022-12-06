@@ -1,0 +1,29 @@
+@import '../../../styles/vars';
+
+.NavigationButton {
+  padding: 20px 0 20px 0;
+  width: 296px;
+  display: inline-block;
+  text-decoration: none;
+  color: theme-color(white-100);
+  border-radius: $border-radius;
+  background-color: theme-color(orange-100);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 116%;
+  text-align: center;
+
+  @media (max-width: $md) {
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: theme-color(orange-80);
+  }
+
+  &:focus {
+    background-color: theme-color(orange-120);
+  }
+}

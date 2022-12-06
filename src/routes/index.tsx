@@ -1,24 +1,25 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from 'react';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import Game from "../pages/Game";
-import NotFound from "../pages/NotFound";
-import GameOver from "../pages/GameOver";
-import GameStart from "../pages/GameStart";
+import Game from '../pages/Game';
+import NotFound from '../pages/NotFound';
+import GameOver from '../pages/GameOver';
+import GameStart from '../pages/GameStart';
+import { routes } from '../core/constants';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: routes.gameStart,
     element: <GameStart />,
     errorElement: <NotFound />,
   },
   {
-    path: "/game",
+    path: routes.game,
     element: <Game />,
     errorElement: <NotFound />,
   },
   {
-    path: "/gameOver",
+    path: routes.gameOver,
     element: <GameOver />,
     errorElement: <NotFound />,
   },
