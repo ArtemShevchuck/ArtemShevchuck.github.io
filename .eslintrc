@@ -11,9 +11,11 @@
       "error",
       {
         "semi": true,
-        "doubleQuotes": true
+        "doubleQuotes": true,
+        "endOfLine": "auto"
       }
     ],
+    "no-console": "off",
     "import/extensions": [
       "error",
       "ignorePackages",
