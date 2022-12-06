@@ -12,10 +12,11 @@
       {
         "semi": true,
         "doubleQuotes": true,
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "no-console": "on"
       }
     ],
-    "no-console": "off",
+
     "import/extensions": [
       "error",
       "ignorePackages",
