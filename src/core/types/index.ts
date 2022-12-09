@@ -12,3 +12,9 @@ export interface IStartContainer {
 export interface IStartContentWrapper {
   children: ReactNode;
 }
+
+export interface IOctagon {
+  children: ReactNode;
+  letter: string;
+  variant: 'inactive' | 'correct' | 'wrong' | 'selected' | 'hovered';
+}
