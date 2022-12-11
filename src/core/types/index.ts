@@ -18,3 +18,24 @@ export interface IOctagon {
   letter: string;
   variant: 'inactive' | 'correct' | 'wrong' | 'selected' | 'hovered';
 }
+export interface IAnswersWrapper {
+  children: ReactNode;
+}
+
+export interface IQuestionText {
+  children: ReactNode;
+}
+
+export interface IQuestion {
+  id: number;
+  question: string;
+  answers: IAnswer[];
+  correctAnswerId: number;
+  cost: number;
+}
+
+export interface IAnswer {
+  id: number;
+  letter: string;
+  text: string;
+}

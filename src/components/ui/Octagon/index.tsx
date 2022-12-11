@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable react/jsx-closing-bracket-location */
 import { clsx } from 'clsx';
 import React, { FC, useState } from 'react';
@@ -7,7 +8,8 @@ import { IOctagon } from '../../../core/types';
 
 export const Octagon: FC<IOctagon> = ({ children, letter, variant }) => {
   const [isHovered, setIsHovered] = useState(false);
-  const hoveredColor = isHovered ? styles.hovered : styles[variant];
+  const hoveredColor =
+    isHovered && variant === 'inactive' ? styles.hovered : styles[variant];
 
   const handleMouseEnter = () => {
     setIsHovered(true);
