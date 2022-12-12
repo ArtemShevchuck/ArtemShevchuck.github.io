@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { CountActionKind } from '../constants';
 
 export interface INavigationButton {
   path: string;
@@ -43,4 +44,18 @@ export interface IAnswer {
 export interface IScoreOctagon {
   children: ReactNode;
   variant: string;
+}
+
+export interface ITotalScore {
+  children: ReactNode;
+}
+
+export interface CountAction {
+  type: CountActionKind;
+  payload: number;
+}
+
+export interface CountState {
+  questionId: number;
+  score: number;
 }

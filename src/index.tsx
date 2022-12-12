@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { CountProvider } from './core/store/score-context';
 import reportWebVitals from './reportWebVitals';
 import Routes from './routes';
 import './styles/index.scss';
@@ -9,7 +10,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Routes />
+    <CountProvider>
+      <Routes />
+    </CountProvider>
   </React.StrictMode>,
 );
 

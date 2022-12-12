@@ -4,16 +4,25 @@ import LikeImage from '../../assets/images/like.svg';
 import { StartContainer } from '../../containers/StartContainer';
 import NavigationButton from '../../components/ui/NavigationButton';
 import StartContentWrapper from '../../containers/StartContentWrapper';
-import { FINISH_BUTTON, routes, START_IMAGE_ALT } from '../../core/constants';
+import { messages, routes } from '../../core/constants';
+import TotalScore from '../../components/ui/TotalScore';
+import { useCount } from '../../core/store/score-context';
 
-export const GameOver = () => (
-  <StartContainer>
-    <img src={LikeImage} alt={START_IMAGE_ALT} />
+export const GameOver = () => {
+  const {
+    state: { score },
+  } = useCount();
 
-    <StartContentWrapper>
-      <NavigationButton path={routes.gameStart}>
-        {FINISH_BUTTON}
-      </NavigationButton>
-    </StartContentWrapper>
-  </StartContainer>
-);
+  return (
+    <StartContainer>
+      <img src={LikeImage} alt={messages.START_IMAGE_ALT} />
+
+      <StartContentWrapper>
+        <TotalScore>{score}</TotalScore>
+        <NavigationButton path={routes.gameStart}>
+          {messages.FINISH_BUTTON}
+        </NavigationButton>
+      </StartContentWrapper>
+    </StartContainer>
+  );
+};

@@ -1,17 +1,20 @@
 @import '../../../styles/vars';
 
-.text {
+.title {
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
   line-height: 116%;
-  display: flex;
-  align-items: center;
   color: theme-color(black-100);
-  padding-inline: 80px;
+  opacity: 0.5;
+}
 
-  @media (max-width: $md) {
-    padding-inline: 16px;
-  }
+.score {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 116%;
+  color: theme-color(black-100);
 }

@@ -8,24 +8,34 @@
 /* eslint-disable operator-linebreak */
 /* eslint-disable react/jsx-closing-bracket-location */
 /* eslint-disable arrow-parens */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Octagon } from '../../components/ui/Octagon';
 import QuestionText from '../../components/ui/QuestionText';
 import { AnswersWrapper } from '../AnswersWrapper';
 import style from './index.module.scss';
 import data from '../../core/config/data.json';
 import { useCount } from '../../core/store/score-context';
+import { CountActionKind, routes } from '../../core/constants';
 
 const GameContainer = () => {
   const [answerId, setAnswerId] = useState<number | undefined>(undefined);
   const [isGameOver, setIsGameOver] = useState(false);
-  const [score, setScore] = useState(0);
+
+  useEffect(() => {
+    dispatch({
+      type: CountActionKind.CLEAR_STATE,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const questionsList = data;
   const {
     state: { questionId },
     dispatch,
   } = useCount();
+  const navigate = useNavigate();
 
   const getVariant = (id: number) =>
     answerId === id ? getColorVariant(id) : 'inactive';
@@ -40,7 +50,10 @@ const GameContainer = () => {
 
   const checkAnswer = (id: number) => {
     if (id === questionsList[questionId].correctAnswerId) {
-      setScore(questionsList[questionId].cost);
+      dispatch({
+        type: CountActionKind.CHANGE_TOTAL_SCORE,
+        payload: questionsList[questionId].cost,
+      });
 
       if (questionId === questionsList.length - 1) {
         setIsGameOver(true);
@@ -48,7 +61,7 @@ const GameContainer = () => {
       }
 
       setAnswerId(undefined);
-      dispatch({ type: 'increment' });
+      dispatch({ type: CountActionKind.INCREASE_QUESTION_ID });
     } else {
       setIsGameOver(true);
     }
@@ -62,12 +75,7 @@ const GameContainer = () => {
   };
 
   if (isGameOver) {
-    return (
-      <div>
-        <p>Game over</p>
-        <p>You result: {score}$</p>
-      </div>
-    );
+    navigate(routes.gameOver);
   }
 
   return (
