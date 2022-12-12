@@ -10,15 +10,17 @@
 import React, { useState } from 'react';
 import { Octagon } from '../../components/ui/Octagon';
 import QuestionText from '../../components/ui/QuestionText';
-import { questionsList } from '../../core/store';
 import { AnswersWrapper } from '../AnswersWrapper';
 import style from './index.module.scss';
+import data from '../../core/config/data.json';
 
 const GameContainer = () => {
   const [currentQuestionId, setCurrentQuestionId] = useState(0);
   const [answerId, setAnswerId] = useState<number | undefined>(undefined);
   const [isGameOver, setIsGameOver] = useState(false);
   const [score, setScore] = useState(0);
+
+  const questionsList = data;
 
   const getVariant = (id: number) =>
     answerId === id ? getColorVariant(id) : 'inactive';
