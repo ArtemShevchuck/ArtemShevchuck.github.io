@@ -1,3 +1,4 @@
+/* eslint-disable import/namespace */
 /* eslint-disable no-confusing-arrow */
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /* eslint-disable implicit-arrow-linebreak */
@@ -13,29 +14,41 @@ import QuestionText from '../../components/ui/QuestionText';
 import { AnswersWrapper } from '../AnswersWrapper';
 import style from './index.module.scss';
 import data from '../../core/config/data.json';
+import { useCount } from '../../core/store/score-context';
 
 const GameContainer = () => {
-  const [currentQuestionId, setCurrentQuestionId] = useState(0);
   const [answerId, setAnswerId] = useState<number | undefined>(undefined);
   const [isGameOver, setIsGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
   const questionsList = data;
+  const {
+    state: { questionId },
+    dispatch,
+  } = useCount();
 
   const getVariant = (id: number) =>
     answerId === id ? getColorVariant(id) : 'inactive';
 
-  const checkAnswer = (id: number) => {
-    if (id === questionsList[currentQuestionId].correctAnswerId) {
-      setScore(questionsList[currentQuestionId].cost);
+  const getColorVariant = (id: number) => {
+    if (questionsList[questionId].correctAnswerId === id) {
+      return 'correct';
+    }
 
-      if (currentQuestionId === questionsList.length - 1) {
+    return 'wrong';
+  };
+
+  const checkAnswer = (id: number) => {
+    if (id === questionsList[questionId].correctAnswerId) {
+      setScore(questionsList[questionId].cost);
+
+      if (questionId === questionsList.length - 1) {
         setIsGameOver(true);
         return;
       }
 
       setAnswerId(undefined);
-      setCurrentQuestionId(prev => prev + 1);
+      dispatch({ type: 'increment' });
     } else {
       setIsGameOver(true);
     }
@@ -46,14 +59,6 @@ const GameContainer = () => {
     setTimeout(() => {
       checkAnswer(id);
     }, 2000);
-  };
-
-  const getColorVariant = (id: number) => {
-    if (questionsList[currentQuestionId].correctAnswerId === id) {
-      return 'correct';
-    }
-
-    return 'wrong';
   };
 
   if (isGameOver) {
@@ -67,9 +72,9 @@ const GameContainer = () => {
 
   return (
     <div className={style.content}>
-      <QuestionText>{questionsList[currentQuestionId].question}</QuestionText>
+      <QuestionText>{questionsList[questionId].question}</QuestionText>
       <AnswersWrapper>
-        {questionsList[currentQuestionId].answers.map(answer => (
+        {questionsList[questionId].answers.map(answer => (
           <div key={answer.id} onClick={() => handleClick(answer.id)}>
             <Octagon letter={answer.letter} variant={getVariant(answer.id)}>
               {answer.text}
