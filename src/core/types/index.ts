@@ -39,3 +39,8 @@ export interface IAnswer {
   letter: string;
   text: string;
 }
+
+export interface IScoreOctagon {
+  children: ReactNode;
+  variant: string;
+}

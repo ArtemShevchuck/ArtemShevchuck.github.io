@@ -1,0 +1,64 @@
+@import '../../../styles/vars';
+
+.container {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 5px 0 5px 0;
+}
+
+.line {
+  border: 0.5px solid theme-color(black-40);
+  height: 0px;
+  width: 100%;
+  margin-top: 21px;
+}
+
+.middle {
+  border-top: 1px solid theme-color(black-40);
+  border-bottom: 1px solid theme-color(black-40);
+  width: 150px;
+  height: 40px;
+  background: theme-color(white-100);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+
+  &Label {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 116%;
+    color: theme-color(black-100);
+    text-align: center;
+    width: inherit;
+  }
+}
+
+.box {
+  width: 125px;
+  height: 36px;
+  background: theme-color(white-100);
+  border: 1px solid theme-color(black-40);
+  border-radius: 0px;
+  transform: rotate(45deg);
+  margin-top: 2px;
+  margin-inline: -20px;
+  border-top-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.inactive {
+  border-color: theme-color(black-40);
+}
+
+.current {
+  border-color: theme-color(orange-100);
+  color: theme-color(orange-100);
+}
+
+.finished {
+  border-color: theme-color(black-40);
+  color: theme-color(black-40);
+}

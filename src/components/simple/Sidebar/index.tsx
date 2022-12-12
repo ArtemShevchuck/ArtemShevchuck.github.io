@@ -5,6 +5,7 @@ import { useCount } from '../../../core/store/score-context';
 import data from '../../../core/config/data.json';
 
 import style from './index.module.scss';
+import ScoreOctagon from '../../ui/ScoreOctagon';
 
 const sideBar = () => {
   const questionsList = data;
@@ -26,16 +27,16 @@ const sideBar = () => {
 
   return (
     <div className={style.sidebar}>
-      <ul>
+      <div className={style.list}>
         {questionsList
           .slice(0)
           .reverse()
           .map(question => (
-            <li key={question.id}>
-              {`${question.cost} ${getVariant(question.id)}`}
-            </li>
+            <ScoreOctagon key={question.id} variant={getVariant(question.id)}>
+              {`$${question.cost}`}
+            </ScoreOctagon>
           ))}
-      </ul>
+      </div>
     </div>
   );
 };
