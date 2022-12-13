@@ -18,3 +18,10 @@
   line-height: 116%;
   color: theme-color(black-100);
 }
+
+@media (max-width: $sm) {
+  .title,
+  .score {
+    text-align: center;
+  }
+}

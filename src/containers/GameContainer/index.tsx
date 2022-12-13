@@ -11,7 +11,6 @@ import { CountActionKind, routes } from '../../core/constants';
 
 const GameContainer = () => {
   const [answerId, setAnswerId] = useState<number | null>(null);
-  const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
     dispatch({
@@ -39,20 +38,18 @@ const GameContainer = () => {
 
   const checkAnswer = (id: number) => {
     if (id === questionsList[questionId].correctAnswerId) {
-      dispatch({
-        type: CountActionKind.CHANGE_TOTAL_SCORE,
-        payload: questionsList[questionId].cost,
-      });
-
       if (questionId === questionsList.length - 1) {
-        setIsGameOver(true);
+        navigate(routes.gameOver);
         return;
       }
 
       setAnswerId(null);
-      dispatch({ type: CountActionKind.INCREASE_QUESTION_ID });
+      dispatch({
+        type: CountActionKind.NEXT_QUESTION,
+        payload: questionsList[questionId].cost,
+      });
     } else {
-      setIsGameOver(true);
+      navigate(routes.gameOver);
     }
   };
 
@@ -62,10 +59,6 @@ const GameContainer = () => {
       checkAnswer(id);
     }, 2000);
   };
-
-  if (isGameOver) {
-    navigate(routes.gameOver);
-  }
 
   return (
     <div className={style.content}>

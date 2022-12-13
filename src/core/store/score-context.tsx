@@ -15,11 +15,12 @@ function countReducer(prevState: CountState, action: CountAction) {
   const { type, payload } = action;
 
   switch (type) {
-    case CountActionKind.INCREASE_QUESTION_ID: {
-      return { ...prevState, questionId: prevState.questionId + 1 };
-    }
-    case CountActionKind.CHANGE_TOTAL_SCORE: {
-      return { ...prevState, score: payload };
+    case CountActionKind.NEXT_QUESTION: {
+      return {
+        ...prevState,
+        questionId: prevState.questionId + 1,
+        score: payload,
+      };
     }
     case CountActionKind.CLEAR_STATE: {
       return { ...prevState, questionId: 0, score: 0 };
