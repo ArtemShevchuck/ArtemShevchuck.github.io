@@ -1,9 +1,11 @@
+@import '../../styles/vars';
+
 .wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-row-gap: 1em;
 
-  @media (max-width: 768px) {
+  @media (max-width: $xl) {
     grid-template-columns: 1fr;
   }
 }

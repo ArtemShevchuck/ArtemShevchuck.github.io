@@ -1,22 +1,12 @@
-/* eslint-disable import/namespace */
-/* eslint-disable no-confusing-arrow */
-/* eslint-disable @typescript-eslint/no-use-before-define */
-/* eslint-disable implicit-arrow-linebreak */
-/* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable operator-linebreak */
-/* eslint-disable react/jsx-closing-bracket-location */
-/* eslint-disable arrow-parens */
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { Octagon } from '../../components/ui/Octagon';
-import QuestionText from '../../components/ui/QuestionText';
-import { AnswersWrapper } from '../AnswersWrapper';
 import style from './index.module.scss';
 import data from '../../core/config/data.json';
+import { AnswersWrapper } from '../AnswersWrapper';
+import { Octagon } from '../../components/ui/Octagon';
 import { useCount } from '../../core/store/score-context';
+import QuestionText from '../../components/ui/QuestionText';
 import { CountActionKind, routes } from '../../core/constants';
 
 const GameContainer = () => {
@@ -27,7 +17,6 @@ const GameContainer = () => {
     dispatch({
       type: CountActionKind.CLEAR_STATE,
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const questionsList = data;
