@@ -1,6 +1,7 @@
 import React from 'react';
-import { StartContainer } from '../../containers/StartContainer';
+
 import styles from './index.module.scss';
+import { StartContainer } from '../../containers/StartContainer';
 
 export const NotFound = () => (
   <StartContainer>

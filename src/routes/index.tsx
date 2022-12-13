@@ -2,10 +2,10 @@ import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import { Game } from '../pages/Game';
+import { routes } from '../core/constants';
 import { NotFound } from '../pages/NotFound';
 import { GameOver } from '../pages/GameOver';
-import GameStart from '../pages/GameStart';
-import { routes } from '../core/constants';
+import { GameStart } from '../pages/GameStart';
 
 const router = createBrowserRouter([
   {

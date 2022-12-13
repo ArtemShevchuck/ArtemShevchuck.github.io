@@ -1,7 +1,8 @@
 import clsx from 'clsx';
 import React, { FC } from 'react';
-import { IScoreOctagon } from '../../../core/types';
+
 import styles from './index.module.scss';
+import { IScoreOctagon } from '../../../core/types';
 
 const ScoreOctagon: FC<IScoreOctagon> = ({ children, variant }) => (
   <div className={styles.container}>

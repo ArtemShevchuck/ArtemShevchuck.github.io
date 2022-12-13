@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/jsx-no-constructed-context-values */
 import * as React from 'react';
+
 import { CountActionKind } from '../constants';
 import { CountAction, CountState } from '../types';
 
@@ -8,6 +7,7 @@ const initialState = { questionId: 0, score: 0 };
 
 const CountContext = React.createContext({
   state: { questionId: 0, score: 0 },
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   dispatch: ({ type }: any) => type,
 });
 

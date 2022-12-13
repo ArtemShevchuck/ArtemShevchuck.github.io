@@ -1,5 +1,3 @@
-/* eslint-disable operator-linebreak */
-/* eslint-disable react/jsx-closing-bracket-location */
 import { clsx } from 'clsx';
 import React, { FC, useState } from 'react';
 

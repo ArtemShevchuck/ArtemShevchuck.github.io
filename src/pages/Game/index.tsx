@@ -1,7 +1,7 @@
 import React from 'react';
 
-import GameContainer from '../../containers/GameContainer';
 import styles from './index.module.scss';
+import GameContainer from '../../containers/GameContainer';
 import ScoreContainer from '../../containers/ScoreContainer';
 
 export const Game = () => (

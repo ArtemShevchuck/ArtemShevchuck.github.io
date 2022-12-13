@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
-import { messages } from '../../../core/constants';
-import { ITotalScore } from '../../../core/types';
+
 import styles from './index.module.scss';
+import { ITotalScore } from '../../../core/types';
+import { messages } from '../../../core/constants';
 
 const TotalScore: FC<ITotalScore> = ({ children }) => (
   <div>

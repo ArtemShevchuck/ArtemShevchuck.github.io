@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 
 import style from './index.module.scss';
 import data from '../../core/config/data.json';
@@ -10,7 +10,7 @@ import QuestionText from '../../components/ui/QuestionText';
 import { CountActionKind, routes } from '../../core/constants';
 
 const GameContainer = () => {
-  const [answerId, setAnswerId] = useState<number | undefined>(undefined);
+  const [answerId, setAnswerId] = useState<number | null>(null);
   const [isGameOver, setIsGameOver] = useState(false);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ const GameContainer = () => {
         return;
       }
 
-      setAnswerId(undefined);
+      setAnswerId(null);
       dispatch({ type: CountActionKind.INCREASE_QUESTION_ID });
     } else {
       setIsGameOver(true);

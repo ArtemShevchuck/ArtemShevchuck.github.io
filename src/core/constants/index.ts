@@ -15,6 +15,7 @@ export const routes = {
   gameOver: '/gameOver',
 };
 
+// ACTIONS
 export enum CountActionKind {
   INCREASE_QUESTION_ID = 'INCREASE_QUESTION_ID',
   CHANGE_TOTAL_SCORE = 'CHANGE_TOTAL_SCORE',
